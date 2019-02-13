@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mad Lib Form
+{% endblock %}
+
+{% block content %}
+    <form action="/story" method="POST">
+        {% for question in q_list %}
+            <label for="{{ question }}">{{ question }}</label>
+            <input name="{{ question }}"><br>
+        {% endfor %}
+        <button>Submit</button>
+    </form>
+{% endblock %}
