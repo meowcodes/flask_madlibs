@@ -4,6 +4,8 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "oh-so-secret"
+debug = DebugToolbarExtension(app)
+
 
 @app.route("/")
 def generate_form():
@@ -11,11 +13,17 @@ def generate_form():
 
     q_list = story.prompts
 
-    return render_template("madlib-form.html", q_list = q_list)
+    return render_template("madlib-form.html", q_list=q_list)
 
 
-# story = Story(
-#     ["place", "noun", "verb", "adjective", "plural_noun"],
-#     """Once upon a time in a long-ago {place}, there lived a
-#        large {adjective} {noun}. It loved to {verb} {plural_noun}."""
-# )
+@app.route("/story")
+def generate_story():
+    """Generates story from submitted data."""
+
+    q_list = story.prompts
+    mad_dictionary = {}
+
+    for q in q_list:
+        mad_dictionary[q] = request.args.get(q, "Empty")
+
+    return render_template("madlib-story.html", complete_story=story.generate(mad_dictionary))

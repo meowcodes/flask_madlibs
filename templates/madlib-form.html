@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <form action="/story" method="POST">
+    <form action="/story">
         {% for question in q_list %}
             <label for="{{ question }}">{{ question }}</label>
             <input name="{{ question }}"><br>
