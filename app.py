@@ -20,10 +20,4 @@ def generate_form():
 def generate_story():
     """Generates story from submitted data."""
 
-    q_list = story.prompts
-    mad_dictionary = {}
-
-    for q in q_list:
-        mad_dictionary[q] = request.args.get(q, "Empty")
-
-    return render_template("madlib-story.html", complete_story=story.generate(mad_dictionary))
+    return render_template("madlib-story.html", complete_story=story.generate(request.args))

@@ -8,7 +8,7 @@
     <form action="/story">
         {% for question in q_list %}
             <label for="{{ question }}">{{ question }}</label>
-            <input name="{{ question }}"><br>
+            <input id="{{ question }}" name="{{ question }}"><br>
         {% endfor %}
         <button>Submit</button>
     </form>
