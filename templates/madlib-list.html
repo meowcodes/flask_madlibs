@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mad Lib List
+{% endblock %}
+
+{% block content %}
+<form action="/form">
+    <select name="chosen-story">
+        {% for story_name in story_dict.keys() %}
+            <option value="{{ story_name }}">{{ story_name }}</option>
+        {% endfor %}
+    </select>
+    <button>I Choose You</button>
+</form>
+{% endblock %}

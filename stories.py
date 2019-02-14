@@ -38,8 +38,24 @@ class Story:
 # Here's a story to get you started
 
 
-story = Story(
+story1 = Story(
     ["place", "noun", "verb", "adjective", "plural_noun"],
     """Once upon a time in a long-ago {place}, there lived a
        large {adjective} {noun}. It loved to {verb} {plural_noun}."""
 )
+
+story2 = Story(
+    ["animal", "gerund", "adjective", "plural_noun", "verb", "noun"],
+    """Long ago there was a {animal} that enjoyed {gerund} {adjective} {plural_noun}.  It never {verb} for {noun}."""
+)
+
+story3 = Story(
+    ["number", "animal", "city", "past_tense_verb", "dessert"],
+    """{number} years ago {animal} took over the {city} observatory. Everyone {past_tense_verb} {dessert} in celebration."""
+)
+
+story_dict = {
+    "story1": story1,
+    "story2": story2,
+    "story3": story3
+}

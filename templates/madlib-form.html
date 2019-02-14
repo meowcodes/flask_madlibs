@@ -6,7 +6,9 @@
 
 {% block content %}
     <form action="/story">
-        {% for question in q_list %}
+        <input type="text" name="chosen-story" value="{{ chosen_story_name }}">
+
+        {% for question in chosen_story.prompts %}
             <label for="{{ question }}">{{ question }}</label>
             <input id="{{ question }}" name="{{ question }}"><br>
         {% endfor %}
